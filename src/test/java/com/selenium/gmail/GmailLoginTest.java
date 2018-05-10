@@ -1,5 +1,6 @@
 package com.selenium.gmail;
 
+import com.selenium.core.WebDriverTestBase;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -17,12 +18,11 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class GmailLoginTest {
+public class GmailLoginTest extends WebDriverTestBase {
 
     private String pageURL = "https://gmail.com";
     private String userEmail = "alexander.radey@gmail.com";
     private String userPassword = "W3lcome";
-    private WebDriver driver;
 
     @BeforeClass
     public void setup() {
