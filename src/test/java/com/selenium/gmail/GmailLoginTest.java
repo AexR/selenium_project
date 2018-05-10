@@ -21,7 +21,7 @@ public class GmailLoginTest {
 
     private String pageURL = "https://gmail.com";
     private String userEmail = "alexander.radey@gmail.com";
-    private String userPassword = "spiv0chep0le2";
+    private String userPassword = "W3lcome";
     private WebDriver driver;
 
     @BeforeClass
