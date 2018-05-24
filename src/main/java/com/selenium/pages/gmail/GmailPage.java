@@ -1,4 +1,4 @@
-package com.selenium.pages;
+package com.selenium.pages.gmail;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

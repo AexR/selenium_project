@@ -1,27 +1,21 @@
 package com.selenium.google;
 
 import com.selenium.core.WebDriverTestBase;
-import com.selenium.pages.GoogleResultPage;
-import com.selenium.pages.GoogleSearchPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import com.selenium.pages.google.GoogleResultPage;
+import com.selenium.pages.google.GoogleSearchPage;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class GoogleSearchTest extends WebDriverTestBase {
 
     private String pageURL = "https://www.google.com.ua";
     private String searchString = "seleniumhq";
+    private String resultPageTitle = "seleniumhq - Пошук Google";
 
     @Test
-    public void searchText() {
+    public void searchText() throws InterruptedException {
 
         driver.get(pageURL);
 
@@ -31,6 +25,12 @@ public class GoogleSearchTest extends WebDriverTestBase {
         GoogleResultPage googleResultPage = new GoogleResultPage(driver);
         WebElement firstResultUrlText = googleResultPage.getLink();
 
-        Assert.assertTrue(firstResultUrlText.getText().contains(searchString),"was not found");
+        Assert.assertTrue(firstResultUrlText.getText().contains(searchString), "was not found");
+    }
+
+    @Test(dependsOnMethods = {"searchText"})
+    public void titleUpdated() {
+        GoogleResultPage googleResultPage = new GoogleResultPage(driver);
+        Assert.assertTrue(googleResultPage.getTitle().contains(resultPageTitle));
     }
 }
