@@ -1,5 +1,6 @@
 package com.selenium.pages.gmail;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ public class GmailLoginPage {
         this.driver = driver;
     }
 
+    @Step ("Logging in bla bla")
     public void login(String userEmail, String userPassword) {
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.get(pageURL);
