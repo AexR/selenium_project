@@ -3,6 +3,7 @@ package com.selenium.gmail;
 import com.selenium.core.WebDriverTestBase;
 import com.selenium.pages.gmail.GmailLoginPage;
 import com.selenium.pages.gmail.GmailPage;
+import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,7 +15,7 @@ public class GmailLoginTest extends WebDriverTestBase {
     private String userPassword = "BzNEj45swqMXoTtIAYyK";
 
     @Test
-    @Step
+    @Description("Logging in to google 2018-06-05")
     public void loginTest() throws InterruptedException {
 
         GmailLoginPage gmailLoginPage = new GmailLoginPage(driver);
@@ -25,6 +26,7 @@ public class GmailLoginTest extends WebDriverTestBase {
     }
 
     @Test(dependsOnMethods = {"loginTest"})
+    @Description("trying to check for new emails 2018-06-05")
     public void checkForNewEmailsTest() {
         String title = driver.getTitle();
         Assert.assertTrue(title.contains("Inbox ("));
