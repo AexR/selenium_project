@@ -1,0 +1,10 @@
+<suite name="UI tests" verbose="1">
+    <tests>
+        <test name="google">
+            <classes>
+                <class name="com.selenium.google.GoogleSearchTest" />
+                <class name="com.selenium.gmail.GmailLoginTest" />
+            </classes>
+        </test>
+    </tests>
+</suite>
